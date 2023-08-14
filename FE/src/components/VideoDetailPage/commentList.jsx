@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Box, Stack, CardBody, Text } from "@chakra-ui/react";
+import { PORT } from "../helper";
 
 function GetComments({ videoID }) {
   // Pakai videoID di parameter nya
@@ -9,7 +10,7 @@ function GetComments({ videoID }) {
     async function fetchComments() {
       try {
         const response = await axios.get(
-          `http://localhost:9999/api/comments?videoID=${videoID}`
+          `http://localhost:${PORT}/api/comments?videoID=${videoID}`
         );
         setComments(response.data);
       } catch (error) {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { PORT } from "../helper";
 
 // const BASE_URL = process.env.BASE_URL;
 
@@ -9,7 +10,7 @@ function UseThumbnails() {
   useEffect(() => {
     async function fetchThumbnails() {
       try {
-        const response = await axios.get("http://localhost:9999/api/");
+        const response = await axios.get(`https://localhost:${PORT}/api/`);
         setThumbnails(response.data);
       } catch (error) {
         console.error("Error fetching thumbnails:", error.message);

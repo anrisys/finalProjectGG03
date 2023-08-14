@@ -9,6 +9,7 @@ import {
   Input,
   Box,
 } from "@chakra-ui/react";
+import { PORT } from "../helper";
 
 function SubmitComment({ videoID }) {
   const [formComment, setFormComment] = useState({
@@ -22,7 +23,7 @@ function SubmitComment({ videoID }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:9999/api/comments",
+        `http://localhost:${PORT}/api/comments`,
         formComment,
         {
           headers: {
